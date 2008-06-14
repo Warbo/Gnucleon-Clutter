@@ -346,10 +346,10 @@ class Square(clutter.Group):
 		self.add(texture)
 
 	def add_nucleon(self, colour):
-		if (min((self.size_x, self.size_y)) + 0.0) / 4.0 > 25:
-			pixbuf = gtk.gdk.pixbuf_new_from_file('images/' + colour + 'proton_big.png')
-		else:
-			pixbuf = gtk.gdk.pixbuf_new_from_file('images/' + colour + 'proton_small.png')
+		#if (min((self.size_x, self.size_y)) + 0.0) / 4.0 > 25:
+		pixbuf = gtk.gdk.pixbuf_new_from_file('images/' + colour + 'proton_big.png')
+		#else:
+		#	pixbuf = gtk.gdk.pixbuf_new_from_file('images/' + colour + 'proton_small.png')
 		texture = clutter.Texture(pixbuf)
 		#texture.set_position(0, 0)
 		texture.set_anchor_point(texture.get_width() / 2, texture.get_height() / 2)
@@ -508,11 +508,11 @@ if __name__ == '__main__':
 
 	global colours
 	global current_colour
-	colours = ['green', 'yellow']
+	colours = ['green', 'yellow', 'red', 'blue']
 	current_colour = 'green'
 
-	columns = 4
-	rows = 3
+	columns = 8
+	rows = 6
 
 	display = ClutterDisplay((800, 600), (columns, rows), "#000000")
 
