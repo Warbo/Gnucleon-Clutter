@@ -324,9 +324,9 @@ class Square(clutter.Group):
 
 	def add_electron(self):
 		#if min((self.size_x, self.size_y)) / 18.0 > 25:
-		#pixbuf = gtk.gdk.pixbuf_new_from_file('images/electron_big.png')
+		pixbuf = gtk.gdk.pixbuf_new_from_file('images/electron_big.png')
 		#else:
-		pixbuf = gtk.gdk.pixbuf_new_from_file('images/electron_small.png')
+		#pixbuf = gtk.gdk.pixbuf_new_from_file('images/electron_small.png')
 		texture = clutter.Texture(pixbuf)
 		texture.set_anchor_point(texture.get_width() / 2, texture.get_height() / 2)
 		texture.set_position(0, 0)
