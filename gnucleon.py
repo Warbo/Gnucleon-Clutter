@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import gc
 import math
 import clutter
 import gtk
@@ -125,10 +126,10 @@ class BehaviourOrbit(clutter.Behaviour):
 			# Actors must be given a property 'scale_factor' which is their standard scale
 			actor.set_scale(actor.scale_factor * scale, actor.scale_factor * scale)
 			# Adjust the rendering order for things 'in front' or 'behind'
-			if scale - 0.25 > 0.9:
-				actor.raise_top()
-			elif scale - 0.25 < 0.1:
-				actor.lower_bottom()
+			#if scale - 0.25 > 0.9:
+			#	actor.raise_top()
+			#elif scale - 0.25 < 0.1:
+			#	actor.lower_bottom()
 
 	def turn(self, angle):
 		"""This tilts the ellipse anticlockwise by the given number of degrees"""
@@ -521,6 +522,9 @@ class Square(clutter.Group):
 			self.remove(nucleon)
 		self.nucleons = []
 		self.remove_all()
+		print self.get_children
+		#while gc.collect():
+		#	pass
 
 	def remove_particle(self):
 		global current_colour
@@ -549,6 +553,8 @@ class Square(clutter.Group):
 		else:
 			# If there aren't any left behind then the atom has no owner
 			self.colour = None
+		#while gc.collect():
+		#	pass
 
 	def send_left(self):
 		"""Remove a nucleon from the current Square and add one to the
@@ -671,7 +677,8 @@ if __name__ == '__main__':
 	# Players are cycled through in the list order
 	global colours
 	global current_colour
-	colours = ['green', 'yellow', 'red', 'blue']
+	#colours = ['green', 'yellow', 'red', 'blue']
+	colours = ['green']
 	current_colour = 'green'
 
 	# Set the board size
