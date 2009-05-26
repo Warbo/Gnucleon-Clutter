@@ -5,7 +5,7 @@ import math
 import clutter
 import gtk
 import cairo
-from clutter import cluttercairo
+import cluttercairo
 
 class BehaviourSpin(clutter.Behaviour):
 	# This is a simple Clutter behaviour which spins any actor it is applied to
